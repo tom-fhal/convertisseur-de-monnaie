@@ -55,7 +55,7 @@ def lock():
         amount_entry.config(text=f'Montant du {home_entry.get()} à convertir en {conversion_entry.get()}')
         converted_label.config(text=f'Est égal à ce nombre {conversion_entry.get()}')
         convert_button.config(text=f'Convertir de  {home_entry.get()}')
-        lock()
+lock()
         
 def unlock():
     #Activer les boîtes de saisie
@@ -64,7 +64,8 @@ def unlock():
     rate_entry.config(state="normal")
     #Désactiver l'onglet
     my_notebook.tab(1, state='disabled')
-    unlock()
+    
+unlock()
 
 home = LabelFrame(currency_frame, text="Votre devise nationale")
 home.pack(pady=20)
@@ -125,13 +126,13 @@ def convert():
     converted_entry.insert(0, result)
     history.append((amount, source, destination, conversion))
     history_listbox.insert(END, f'{amount} {source} = {conversion} {destination}')
-    convert()
+convert()
 
 
 def clear():
     amount_entry.delete(0,END)
     converted_entry.delete(0,END)
-   clear()
+clear()
 
 amount_label = LabelFrame(conversion_frame, text="Montant à convertir")
 amount_label.pack(pady=20)
